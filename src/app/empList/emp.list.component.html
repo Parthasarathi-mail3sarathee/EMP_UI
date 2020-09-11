@@ -1,0 +1,24 @@
+<table>
+    <thead>
+       <tr>
+           <th>ID</th>
+           <th>Name</th>
+           <th>Designation</th> 
+           <th>Address</th>
+           <th>View</th>
+           <th>Delete</th>
+       </tr>
+    </thead>
+    <tbody>
+            <tr  *ngFor="let emp of (employeesList$ | async)">
+                <td>{{emp.id}}</td>
+                <td>{{emp.name}}</td>  
+                <td>{{emp.role}}</td>
+                <td>{{emp.address}}</td>
+                <td>{{emp.id}}</td>
+                <td>{{emp.id}}</td>
+            </tr> 
+       
+        <ng-template #noData>No Data Available</ng-template>
+    </tbody>
+</table>
