@@ -3,16 +3,18 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
 
+import { EmpDataService } from  "./services/shared.data.service";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmpListComponent } from './empList/emp.list.component';
-import { EmployeeAddComponent } from "./empAdd/emp.add.component"
-
+import { EmployeeAddComponent } from "./empAdd/emp.add.component";
+import { empMessage } from "./empMsg/emp.msg.component";
 @NgModule({
   declarations: [
     AppComponent,
     EmpListComponent,
-    EmployeeAddComponent
+    EmployeeAddComponent,
+    empMessage
   ],
   imports: [
     BrowserModule,
@@ -20,7 +22,7 @@ import { EmployeeAddComponent } from "./empAdd/emp.add.component"
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [EmpDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

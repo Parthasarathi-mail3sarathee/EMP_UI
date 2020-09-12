@@ -22,7 +22,10 @@ export class RestApiService {
   // Http Options
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+      'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
     })
   }  
 
@@ -44,14 +47,24 @@ export class RestApiService {
     )
   }  
 
+  createMyPost(employee)
+  {
+    this.http.post<Employee>(this.apiURL + '/employee', JSON.stringify(employee), this.httpOptions)
+    .subscribe(data => {
+      console.log(data);
+    })
+  }
+  
   // HttpClient API post() method => Create employee
   createEmployee(employee): Observable<Employee> {
+    console.log(employee);
     console.log("test");
     return this.http.post<Employee>(this.apiURL + '/employee', JSON.stringify(employee), this.httpOptions)
     .pipe(
-      retry(1),
-      catchError(this.handleError)
-    )
+    retry(1),
+    catchError(this.handleError)
+  )  
+
   }  
 
   // HttpClient API put() method => Update employee
@@ -65,11 +78,9 @@ export class RestApiService {
 
   // HttpClient API delete() method => Delete employee
   deleteEmployee(id){
-    return this.http.delete<Employee>(this.apiURL + '/employee/' + id, this.httpOptions)
-    .pipe(
-      retry(1),
-      catchError(this.handleError)
-    )
+    this.http.delete<Employee>(this.apiURL + '/employee/'+id, this.httpOptions).subscribe(data => {
+      console.log(data);
+    });
   }
 
   // Error handling 
