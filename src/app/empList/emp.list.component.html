@@ -1,4 +1,18 @@
-<table>
+<div>
+    <div  *ngIf="messageEle == 'info' &&  true == isShown " class="isa_info">
+      Replace this text with your own text.
+    </div>
+    <div  *ngIf="messageEle == 'Success' &&  true == isShown " class="isa_success">
+      Replace this text with your own text.
+    </div>
+    <div  *ngIf="messageEle == 'warning' &&  true == isShown " class="isa_warning">
+      Replace this text with your own text.
+    </div>
+    <div  *ngIf="messageEle == 'error' &&  true == isShown "  class="isa_error">
+      Replace this text with your own text.
+    </div>
+  </div>
+  <table>
     <thead>
        <tr>
            <th>ID</th>
