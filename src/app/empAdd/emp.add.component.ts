@@ -29,15 +29,18 @@ export class EmployeeAddComponent implements OnInit {
   .subscribe(params => {
     // Defaults to 0 if no query param provided.
     if(params['isEdit']=='true'){
-      //console.log("dsfsdfdfdsdsfsdf");
+      console.log("Will it work");
       this.newEmployee = this.dataService.getEmp();
       console.log(this.newEmployee);
       this.onEdit(this.newEmployee);
     }
+    else{
+      this.resetForm();
+    }
     console.log(params['isEdit']);
     
   });
-    this.resetForm();
+    
     
   }
 
@@ -53,7 +56,7 @@ export class EmployeeAddComponent implements OnInit {
   onSubmit(data) {
     console.log("this is submit");
     console.log(data);
-    if (data.id == '')
+    if (data.id == '' || data.id ==null)
     {
      this.newEmployee = { id: -1, name : data.name, address : data.address, role : data.role }
       this.insertRecord();
@@ -73,8 +76,11 @@ export class EmployeeAddComponent implements OnInit {
     this.name= item.name;
     this.address=item.address;
     this.role= item.role;
-    
-    console.log("this is edit");
+    console.log("this is edit test "+this.id);
+    console.log("this is edit test "+this.name);
+    console.log("this is edit test "+this.address);
+    console.log("this is edit test "+this.role);
+    console.log("this is edit test");
   }
   insertRecord() {
     console.log("this is add");
@@ -83,9 +89,18 @@ export class EmployeeAddComponent implements OnInit {
     this.messageEle = "Success";
     this.isShown = true;
   }
-
+  modifyName()
+  {
+    
+    this.id= 222;
+    this.name= "testName";
+    this.address="test address";
+    this.role= "test role";
+  }
   updateRecord() {
-    this.service.updateEmployee(this.id,this.newEmployee);
+    this.service.ModifyMyPost(this.id,this.newEmployee); 
+    this.messageEle = "Success";
+    this.isShown = true;
   }
 
 }
