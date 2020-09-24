@@ -10,10 +10,8 @@ import { EmpDataService } from  "./services/shared.data.service";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmpListComponent } from './empList/emp.list.component';
-import { NgbdModalBasic } from "./modal-basic/modal-basic";
 import { EmployeeAddComponent } from "./empAdd/emp.add.component";
 import { empMessage } from "./empMsg/emp.msg.component";
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   { path: 'emp-add-component', component: EmployeeAddComponent },
@@ -22,7 +20,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    NgbdModalBasic,
     EmpListComponent,
     EmployeeAddComponent,
     empMessage
@@ -33,8 +30,7 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes),
-    NgbModule
+    RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
   providers: [EmpDataService],
