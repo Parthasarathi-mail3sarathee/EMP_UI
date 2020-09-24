@@ -3,7 +3,7 @@
     Replace this text with your own text.
   </div>
   <div  *ngIf="messageEle == 'Success' &&  true == isShown " class="isa_success">
-    Replace this text with your own text.
+    {{ msg }}
   </div>
   <div  *ngIf="messageEle == 'warning' &&  true == isShown " class="isa_warning">
     Replace this text with your own text.
@@ -28,6 +28,6 @@
     <input type="text" name="role"  [(ngModel)]="role" class="form-control"/>
   </div>
 </div>
-  <input type = "submit" value = "Add Employee"/> 
-  <input type = "button"  (click)="modifyName()" value = "Reset"/>
+  <input type = "submit" value = "{{ empButton }}"/> 
+  <input type = "button"  (click)="resetForm()" value = "Reset"/>
 </form>

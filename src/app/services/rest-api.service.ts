@@ -69,7 +69,9 @@ export class RestApiService {
 
   ModifyMyPost(id,employee)
   {
-    this.http.put<Employee>(this.apiURL + '/employee/' + id, JSON.stringify(employee), this.httpOptions)
+      
+    console.log("this is update");
+    this.http.put<Employee>(this.apiURL + '/employee/'+id, JSON.stringify(employee), this.httpOptions)
     .subscribe(data => {
       console.log(data);
     })

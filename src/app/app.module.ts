@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router'; 
 
 import { EmpDataService } from  "./services/shared.data.service";
@@ -28,6 +28,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     BrowserModule,
     FormsModule,
+    CommonModule,
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(routes)

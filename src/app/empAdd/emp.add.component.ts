@@ -12,6 +12,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class EmployeeAddComponent implements OnInit {
   //messageEle: string;
+  empButton: string;
+  msg: string;
   newEmployee: Employee;
   messageEle ='';
   isShown: boolean;
@@ -33,6 +35,7 @@ export class EmployeeAddComponent implements OnInit {
       this.newEmployee = this.dataService.getEmp();
       console.log(this.newEmployee);
       this.onEdit(this.newEmployee);
+      this.empButton="Update Emp";
     }
     else{
       this.resetForm();
@@ -49,7 +52,7 @@ export class EmployeeAddComponent implements OnInit {
       this.name ='';
       this.address = '';
       this.role = '';
-    
+     this.empButton="Add Emp";
   }
 
 
@@ -88,6 +91,7 @@ export class EmployeeAddComponent implements OnInit {
     this.service.createMyPost(this.newEmployee);
     this.messageEle = "Success";
     this.isShown = true;
+    this.msg = "Employee info succussfully inserted";
   }
   modifyName()
   {
@@ -101,6 +105,7 @@ export class EmployeeAddComponent implements OnInit {
     this.service.ModifyMyPost(this.id,this.newEmployee); 
     this.messageEle = "Success";
     this.isShown = true;
+    this.msg = "Employee info succussfully updated";
   }
 
 }
